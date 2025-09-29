@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <title>网上衣橱 - 用户注册</title>
+  <style>
+    body {
+      background: #f2f2f2;
+      margin: 0;
+      font-family: "微软雅黑", Arial, sans-serif;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .header-nav-container {
+      background: #1589e5;
+      color: #fff;
+      height: 60px;
+      width: 100%;
+    }
+
+    .header {
+      font-size: 28px;
+      text-align: left;
+      padding-left: 30px;
+      letter-spacing: 2px;
+      float: left;
+      line-height: 60px;
+      width: 200px;
+    }
+
+    .nav {
+      float: left;
+      line-height: 60px;
+      margin-left: 350px;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 30px;
+      font-size: 16px;
+    }
+
+    .nav .right {
+      float: right;
+      margin-left: 440px;
+    }
+
+    .container {
+      margin: 40px auto;
+      width: 500px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      padding: 30px 40px;
+      clear: both;
+    }
+
+    .container h2 {
+      text-align: center;
+      color: #1589e5;
+      margin-bottom: 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .form-group label {
+      width: 90px;
+      font-size: 16px;
+      color: #333;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+      width: 260px;
+      padding: 6px 8px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    .form-group input[type="radio"],
+    .form-group input[type="checkbox"] {
+      margin-right: 5px;
+      margin-left: 10px;
+    }
+
+    .form-actions {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .form-actions button {
+      background: #1589e5;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 30px;
+      font-size: 16px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .footer {
+      background: #1589e5;
+      color: #fff;
+      text-align: center;
+      padding: 12px 0;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      font-size: 16px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="header-nav-container">
+    <div class="header">网上衣橱</div>
+    <div class="nav">
+      <a href="#">首页</a>
+      <a href="#">服装风格</a>
+      <a href="#">服装类型</a>
+      <a href="#">购物车</a>
+      <a href="#">个人中心</a>
+      <a href="#">后台管理</a>
+      <span class="right">
+        <a href="#">登录/注册</a>
+      </span>
+    </div>
+  </div>
+  <div class="container">
+    <h2>用户注册</h2>
+    <form>
+      <div class="form-group">
+        <label for="username">用户名：</label>
+        <input type="text" id="username" name="username">
+      </div>
+      <div class="form-group">
+        <label for="password">密码：</label>
+        <input type="password" id="password" name="password">
+      </div>
+      <div class="form-group">
+        <label>性别：</label>
+        <input type="radio" id="male" name="gender" value="男"><label for=" male">男</label>
+        <input type="radio" id="female" name="gender" value="女"><label for="female">女</label>
+      </div>
+      <div class=" form-group">
+        <label>风格：</label>
+        <input type="checkbox" id="sport" name="style" value="运动风"><label for="sport" style="width: 65px;">运动风</label>
+        <input type="checkbox" id="casual" name="style" value="休闲风"><label for="casual" style="width: 65px;">休闲风</label>
+        <input type="checkbox" id="mature" name="style" value="轻熟风"><label for="mature" style="width: 65px;">轻熟风</label>
+        <input type="checkbox" id="simple" name="style" value="简约风"><label for="simple" style="width: 65px;">简约风</label>
+      </div>
+      <div class="form-group">
+        <label for="phone">手机号：</label>
+        <input type="text" id="phone" name="phone">
+      </div>
+      <div class="form-group">
+        <label for="address">收货地址：</label>
+        <input type="text" id="address" name="address">
+      </div>
+      <div class="form-actions">
+        <button type="submit">注册</button>
+        <button type="reset">重置</button>
+      </div>
+    </form>
+  </div>
+  <div class="footer">
+    联系我们：https://www.gcc.edu.cn/
+  </div>
+</body>
+<script>
+  function validateForm() {
+    var phone = document.getElementById('phone').value;
+    var phoneRegex = /^1[3-9]\d{9}$/;
+    if (!phoneRegex.test(phone)) {
+      alert('手机号码格式错误!');
+      return false;
+    }
+    alert('注册成功');
+
+    return false;
+  }
+
+  window.onload = function () {
+    var form = document.querySelector('form');
+    if (form) {
+      form.onsubmit = validateForm;
+    }
+  };
+</script>
+
+</html>
